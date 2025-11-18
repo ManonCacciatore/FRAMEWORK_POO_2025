@@ -7,11 +7,11 @@ use \PDO, \App\Models\BooksRepository, \App\Models\AuthorsRepository;
 abstract class PagesController
 {
 
-    public static function homeAction(PDO $connexion)
+    public static function homeAction()
     {
-        $books = BooksRepository::findAll($connexion, 3);
+        $books = BooksRepository::findAll(3);
 
-        $authors = AuthorsRepository::findAll($connexion, 3);
+        $authors = AuthorsRepository::findAll(3);
 
         global $content, $title;
         ob_start();

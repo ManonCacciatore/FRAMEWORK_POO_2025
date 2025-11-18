@@ -1,19 +1,20 @@
 <?php
 
+
 namespace App\Models;
 
-use \PDO;
+use \PDO, \Core\DB;
 
 abstract class AuthorsRepository
 {
 
-    public static function findAll(PDO $connexion, int $limit = 9): array
+    public static function findAll(int $limit = 9): array
     {
         $sql = "SELECT *
             FROM authors
             ORDER BY created_at DESC
             LIMIT :limit ;";
-        $rs = $connexion->prepare($sql);
+        $rs = DB::getConnexion()->prepare($sql);
         $rs->bindValue(':limit', $limit, PDO::PARAM_INT);
         $rs->execute();
         return $rs->fetchAll(PDO::FETCH_CLASS, Author::class);
