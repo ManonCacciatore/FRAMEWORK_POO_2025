@@ -10,3 +10,16 @@
         </li>
     <?php endforeach; ?>
 </ul>
+
+
+<H2>Recent Authors</H2>
+
+<ul>
+    <?php foreach ($authors as $author) : ?>
+        <li>
+
+            <?php echo $author->firstname; ?> <?php echo $author->lastname; ?>
+
+        </li>
+    <?php endforeach; ?>
+</ul>
