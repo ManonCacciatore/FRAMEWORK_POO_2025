@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# ROUTES
+
+# --------------------------------------------------
+RewriteCond %{REQUEST_URI} !\.(?:css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot)$ [NC]
+RewriteRule ^(.*)$ index.php [L]
