@@ -1,0 +1,9 @@
+{
+    "name": "lunoronti/framework_poo_2025",
+    "autoload": {
+        "psr-4": {
+            "App\\Controllers\\": "app/controllers"
+        }
+    },
+    "require": {}
+}
