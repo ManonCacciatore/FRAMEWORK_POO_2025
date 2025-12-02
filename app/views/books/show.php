@@ -1,3 +1,8 @@
+<?php Core\Template::startSection('title') ?>
+<?php echo $book->title; ?>
+<?php Core\Template::endSection() ?>
+
+<?php Core\Template::startSection('content') ?>
 <h2 class="text-3xl">
     <?php echo $book->title; ?>
 </h2>
@@ -13,3 +18,4 @@
     <li>ISBN: <?php echo $book->isbn; ?></li>
     <li>Category : <?php echo $book->category->name; ?></li>
 </ul>
+<?php Core\Template::endSection() ?>
