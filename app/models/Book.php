@@ -2,38 +2,13 @@
 
 namespace App\Models;
 
-
-class Book
+class Book extends \Core\Model
 {
 
-    public $id, $title, $resume, $author_id, $category_id, $created_at, $cover, $isbn;
+    public $title, $resume, $author_id, $category_id, $cover, $isbn;
 
-    // Liasons
+    // Liasons 1-N
 
-    private $author;
-    private $category;
-
-    public function __get(string $prop): mixed
-    {
-        $setterName = "set" . ucFirst($prop);
-        if (method_exists($this, $setterName)) :
-            $this->$setterName();
-            return $this->$prop;
-        endif;
-        return true;
-    }
-
-    public function setAuthor(): void
-    {
-        if (!$this->author) :
-            $this->author = AuthorsRepository::findOneById($this->author_id);
-        endif;
-    }
-
-    public function setCategory(): void
-    {
-        if (!$this->category) :
-            $this->category = CategoriesRepository::findOneById($this->category_id);
-        endif;
-    }
+    protected $author;
+    protected $category;
 }
